@@ -1,0 +1,12 @@
+baseurl = "http://example"
+languageCode = "en-us"
+title = "example"
+
+[permalinks]
+  etc = ":title/"
+
+[params]
+  Description = "example"
+  GoogleAnalyticsUserID = "example"
+  SearchSite = "example"
+  Disqus = "example"
