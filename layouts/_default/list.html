@@ -1,0 +1,25 @@
+{{ partial "head.html" . }}
+<body>
+  {{ partial "navbar.html" . }}
+  <div class="container">
+    <div class="list-group">
+      {{ range .Data.Pages }}
+      <div class="list-group-item">
+        <div class="row-action-primary">
+          <i class="mdi-image-crop-square"></i>
+        </div>
+        <div class="row-content">
+          <h4 class="list-group-item-heading">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </h4>
+          <p class="list-group-item-text">
+          <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
+          </p>
+        </div>
+      </div>
+      <div class="list-group-separator"></div>
+      {{ end }}
+    </div>
+  </div>
+</body>
+</html>

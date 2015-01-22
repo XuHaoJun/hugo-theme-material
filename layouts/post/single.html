@@ -1,0 +1,49 @@
+{{ partial "head.html" . }}
+<body>
+  {{ partial "navbar.html" . }}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h3>{{ .Title }}<br> <small>{{ .Description }}</small></h3>
+        <hr>
+        {{ .Content }}
+        <hr>
+        <div class="well well-sm"> <!-- Post-specific stats -->
+          <h4>{{ .Date.Format "January 2, 2006" }}<br>
+            <small>{{ .WordCount }} words</small></h4>
+          <hr>
+          <strong>Categories</strong>
+          <ul class="list-unstyled">
+            {{ range .Params.categories }}
+            <li><a href="/categories/{{ . | urlize }}">{{ . }}</a></li>
+            {{ end }}
+          </ul>
+          <hr>
+          <strong>Tags</strong><br>
+          {{ range .Params.tags }}<a class="label label-default" href="/tags/{{ . | urlize }}">{{ . }}</a> {{ end }}
+          <hr>
+          <ul class="pager">
+            {{ if .Prev }}
+            <li>
+              <a class="previous" href="{{.Prev.Permalink}}">← {{.Prev.Title}}</a>
+            </li>
+            {{ end }}
+            {{ if .Next }}
+            <li>
+              <a class="next" href="{{.Next.Permalink}}">{{.Next.Title}} →</a>
+            </li>
+            {{ end }}
+          </ul>
+          <hr>
+          <strong>Comments</strong><br>
+          {{ partial "disqus.html" . }}
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-md-3">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

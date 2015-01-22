@@ -1,0 +1,50 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid shadow-z-2">
+    <div class="navbar-header">
+      <i id="my-navbar-menu" class="navbar-brand mdi-navigation-menu"
+                             data-toggle="modal" data-target="#my-menu">
+      </i>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <!--
+          <a class="navbar-brand" href="{{ .Site.BaseUrl }}">{{ .Site.Title }}</a>
+          <li><a href="/post/">Posts</a></li>
+          And here is where you'd add more links to sections, or anywhere you like.
+          <li><a href="#">About Me</a></li>
+        -->
+      </ul>
+      <h4 class="navbar-text">
+        {{ if .IsPage }}
+        {{ .Type }}
+        <i class="mdi-navigation-chevron-right"></i>
+        {{ end }}
+        {{ .Title }}
+      </h4>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <i class="navbar-brand mdi-action-search"></i>
+        </li>
+        <li>
+          <form class="navbar-form" action="https://www.google.com/search" method="GET">
+            <input type="hidden" name="sitesearch" value="{{ .Site.Params.SearchSite }}" />
+            <input name="q" type="text" result="0" class="form-control col-lg-8" placeholder="" />
+          </form>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div id="my-menu" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <a href="{{ .Site.BaseUrl }}" class="btn btn-primary btn-lg btn-block">xublog</a>
+        <a href="/post/" class="btn btn-default btn-lg btn-block">Posts</a>
+        <a href="/about/" class="btn btn-default btn-lg btn-block">About</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+</script>

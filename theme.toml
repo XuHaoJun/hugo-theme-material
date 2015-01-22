@@ -1,0 +1,6 @@
+author = "XuHaoJun"
+description = "material design blog theme"
+license = "MIT"
+name = "material"
+source_repo = "http://github.com/xuhaojun/hugo-theme-material"
+tags = ["blog"]
